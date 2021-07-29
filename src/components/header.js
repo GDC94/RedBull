@@ -1,42 +1,54 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from 'react';
+import { css } from '@emotion/react';
+import logo from "../images/red.png";
+import Navegacion from './nav';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+const Header = () => {
+    return (
+        <header
+            css={css`
+                background-color: #071644;
+                padding: 1rem;
+
+            `}
+
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+            <div
+                css={css`
+                    max-width: 1200px;
+                    margin: 0 auto;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+                    @media (min-width: 768px){
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                
+                `}
+
+            >
+                <div
+                    css={css`
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    `}
+                >
+                
+                    <img src={logo} alt="" width={70}/>
+                    <h1
+                        css={css`
+                            color: white;
+                    `}
+
+                    >  Red Bull Racing</h1>
+
+                </div>
+                <Navegacion />
+
+            </div>
+        </header>
+    );
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
